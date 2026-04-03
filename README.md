@@ -1,51 +1,133 @@
-# Frontend Setup
+# InboxShield AI
 
-The React app is built once and then served by the backend on port `3001`. For the Outlook add-in flow, tunnel the backend host, not the React dev server.
+AI-powered Outlook add-in for detecting financial scam and phishing emails in real time using **Azure OpenAI**, **RAG**, **Microsoft Graph**, and **agentic workflows**.
 
-## Local Build
+---
 
-```powershell
+## Overview
+
+InboxShield AI helps users identify suspicious financial emails before taking action.
+
+The solution analyses email content directly within an Outlook-style task pane and provides:
+
+* **Risk Level** (Low / Medium / High)
+* **Detected Scam Indicators**
+* **AI-generated Explanation**
+* **Recommended Action**
+
+This project was built as part of the **JavaScript AI Build-a-thon Hack**.
+
+---
+
+## Problem Statement
+
+Financial scams and phishing emails continue to exploit urgency, trust, and false investment promises.
+
+InboxShield AI brings explainable AI directly into the email workflow to help prevent financial harm.
+
+---
+
+## Architecture
+
+![Workflow](InboxShield AI_ Email Scam Detection Workflow.png)
+
+---
+
+## Tech Stack
+
+### Frontend
+
+* React
+* Office.js
+* Outlook Task Pane UI
+
+### Backend
+
+* Node.js
+* Express
+* Azure OpenAI
+
+### AI Components
+
+* Retrieval-Augmented Generation (RAG)
+* Multi-agent workflow
+* MCP-style tool checks
+
+### Integrations
+
+* Microsoft Graph API
+* ngrok HTTPS tunnel
+
+---
+
+## Key Features
+
+* Real-time email risk assessment
+* Scam keyword and urgency detection
+* Structured JSON AI responses
+* Explainable recommendations
+* Outlook workflow integration
+
+---
+
+## Example Output
+
+```json
+{
+  "risk": "HIGH",
+  "indicators": [
+    "guaranteed returns",
+    "urgency language"
+  ],
+  "explanation": "This email contains common financial scam patterns.",
+  "recommendation": "Do not click links or send money."
+}
+```
+
+---
+
+## Running Locally
+
+### Frontend
+
+```bash
+cd frontend
 npm install
-npm run build
+npm start
 ```
 
-The task pane reads the API base URL from `REACT_APP_BACKEND_URL`.
+### Backend
 
-Default:
-
-```env
-REACT_APP_BACKEND_URL=http://localhost:3001
+```bash
+cd backend
+npm install
+node server.js
 ```
 
-Override it in `.env.development.local` if needed before building.
+### Expose via ngrok
 
-## Manifest
-
-- [manifest.template.xml](c:/Users/Moses.Babalola/Documents/inboxshield-ai/frontend/manifest.template.xml) is the source template for the command manifest.
-- [manifest.xml](c:/Users/Moses.Babalola/Documents/inboxshield-ai/frontend/manifest.xml) is the generated file you install in Outlook.
-
-Stamp your public HTTPS tunnel URL into `manifest.xml`:
-
-```powershell
-npm run manifest:tunnel -- https://your-ngrok-domain.ngrok-free.app
+```bash
+ngrok http 3000 --pooling-enabled
+ngrok http 3001 --pooling-enabled
 ```
 
-After that, install [manifest.xml](c:/Users/Moses.Babalola/Documents/inboxshield-ai/frontend/manifest.xml) in Outlook.
+---
 
-## ngrok
+## Impact
 
-Expose the backend because it serves both the API and the built task pane:
+InboxShield AI is focused on **financial safety and scam prevention**, helping users make safer decisions at the point of risk.
 
-```powershell
-ngrok http 3001
-```
+---
 
-Use the HTTPS forwarding URL from ngrok with `npm run manifest:tunnel`.
+## Future Improvements
 
-## Outlook on Windows Loopback
+* Production Outlook deployment
+* Vector database for advanced RAG
+* URL reputation API integration
+* Offline inference support
 
-If Outlook cannot open `localhost`, add the WebView loopback exemption:
+---
 
-```powershell
-CheckNetIsolation LoopbackExempt -a -n="microsoft.win32webviewhost_cw5n1h2txyewy"
-```
+## Author
+
+**Moses Babalola**
