@@ -29,7 +29,7 @@ InboxShield AI brings explainable AI directly into the email workflow to help pr
 
 ## Architecture
 
-![Workflow](InboxShield AI_ Email Scam Detection Workflow.png)
+![Process Flow](InboxShield-AI-Email-Scam-Detection-Workflow.png)
 
 ---
 
