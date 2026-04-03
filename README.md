@@ -1,5 +1,7 @@
 # InboxShield AI
 
+`JS-AI-Build-a-thon Project`
+
 AI-powered Outlook add-in for detecting financial scam and phishing emails in real time using **Azure OpenAI**, **RAG**, **Microsoft Graph**, and **agentic workflows**.
 
 ---
