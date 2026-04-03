@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xsi:type="MailApp">
+
+  <Id>a1b2c3d4-e5f6-7890-abcd-ef1234567890</Id>
+  <Version>1.0.0.3</Version>
+  <ProviderName>InboxShield</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="InboxShield AI" />
+  <Description DefaultValue="Analyze suspicious emails in Outlook and get AI-powered phishing and scam guidance before you click." />
+
+  <IconUrl DefaultValue="https://avowed-mortifiedly-porsche.ngrok-free.dev/logo192.png" />
+  <HighResolutionIconUrl DefaultValue="https://avowed-mortifiedly-porsche.ngrok-free.dev/logo192.png" />
+  <SupportUrl DefaultValue="https://avowed-mortifiedly-porsche.ngrok-free.dev/taskpane" />
+
+  <AppDomains>
+    <AppDomain>https://avowed-mortifiedly-porsche.ngrok-free.dev</AppDomain>
+  </AppDomains>
+
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.3" />
+    </Sets>
+  </Requirements>
+
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://avowed-mortifiedly-porsche.ngrok-free.dev/taskpane" />
+        <RequestedHeight>300</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+
+  <Permissions>ReadWriteItem</Permissions>
+
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
+  </Rule>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
+    xsi:type="VersionOverridesV1_0">
+
+    <Requirements>
+      <bt:Sets>
+        <bt:Set Name="Mailbox" MinVersion="1.3" />
+      </bt:Sets>
+    </Requirements>
+
+    <Hosts>
+      <Host xsi:type="MailHost">
+        <DesktopFormFactor>
+          <FunctionFile resid="commandsUrl" />
+
+          <ExtensionPoint xsi:type="MessageReadCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="InboxShieldGroup">
+                <Label resid="groupLabel" />
+                <Control xsi:type="Button" id="InboxShieldButton">
+                  <Label resid="buttonLabel" />
+                  <Supertip>
+                    <Title resid="buttonLabel" />
+                    <Description resid="buttonDesc" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="icon16" />
+                    <bt:Image size="32" resid="icon32" />
+                    <bt:Image size="80" resid="icon80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="taskpaneUrl" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="icon16" DefaultValue="https://avowed-mortifiedly-porsche.ngrok-free.dev/logo192.png" />
+        <bt:Image id="icon32" DefaultValue="https://avowed-mortifiedly-porsche.ngrok-free.dev/logo192.png" />
+        <bt:Image id="icon80" DefaultValue="https://avowed-mortifiedly-porsche.ngrok-free.dev/logo192.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="commandsUrl" DefaultValue="https://avowed-mortifiedly-porsche.ngrok-free.dev/commands.html" />
+        <bt:Url id="taskpaneUrl" DefaultValue="https://avowed-mortifiedly-porsche.ngrok-free.dev/taskpane" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="groupLabel" DefaultValue="InboxShield Security" />
+        <bt:String id="buttonLabel" DefaultValue="Scan This Email" />
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="buttonDesc" DefaultValue="Open InboxShield AI to scan the current email for phishing, scams, urgency cues, and suspicious signals." />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+
+</OfficeApp>
