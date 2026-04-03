@@ -31,7 +31,31 @@ InboxShield AI brings explainable AI directly into the email workflow to help pr
 
 ## Architecture
 
-![Process Flow](InboxShield-AI-Email-Scam-Detection-Workflow.png)
+```text
+Outlook Ribbon Button
+        ↓
+Task Pane Add-in (React + Office.js)
+        ↓
+ngrok HTTPS Tunnel (--pooling-enabled)
+        ↓
+Node.js / Express API
+        ↓
+Microsoft Graph API
+        ↓
+Parser Agent
+        ↓
+RAG Retrieval Layer
+        ↓
+MCP Tool Checks
+        ↓
+Azure OpenAI
+        ↓
+Advisor Agent
+        ↓
+JSON Response
+        ↓
+Task Pane UI
+```
 
 ---
 
